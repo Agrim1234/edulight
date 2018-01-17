@@ -34,6 +34,9 @@ public class Databasehelper1 extends SQLiteOpenHelper {
         Log.e("DATABASE OPERATIONS","Table created...");
     }
     
+    // On clicking on like button a number and a particular name specific to a particular article is saved in the database 
+    and an id is also given to it 
+    
     public void insertNumber(int z,String s){
         this.db=getWritableDatabase();
         ContentValues values1=new ContentValues();
@@ -46,6 +49,9 @@ public class Databasehelper1 extends SQLiteOpenHelper {
         Log.e("DATABASE OPERATIONS","One row inserted...");
     }
     
+    // on deselecting the like button the particular row from the database gets deleted and the id are given again to the all 
+    the remaining rows  
+   
     public void removeNumber(int z){
         this.db=getWritableDatabase();
         db.delete(TABLE_NAME,COLUMN_NUMBER + "=?",new String[]{"z"});
@@ -63,6 +69,9 @@ public class Databasehelper1 extends SQLiteOpenHelper {
         }while (cursor3.moveToNext());
         Log.e("DATABASE OPERATIONS","one row updated");
     }
+    
+    // on passing the id as argument this method returns the specific number associated with each row so that the particular 
+    liked article associated with the number can be opened 
     
     public int searchNumber(int id){
         this.db=getReadableDatabase();
